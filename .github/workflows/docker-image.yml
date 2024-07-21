@@ -1,0 +1,30 @@
+  - name: build-dockerfile
+  # You may pin to the exact commit or the version.
+  # uses: briceburg/github-action-build-dockerfile@33f5dd08e8b687cd9c4b130db159d5ddc9eb34a3
+  uses: briceburg/github-action-build-dockerfile@v0
+  with:
+    # Newline separated build arguments, e.g. "VERSION=foo\nAUTHOR=bar".
+    args: # optional
+    # JSON array of refs which will trigger publishing layers to gha cache. Use long lived branches.
+    cache_refs: # optional, default is ["refs/heads/main", "refs/heads/master"]
+    # Docker build context directory. Defaults to "Git context" so you don't need to use actions/checkout, but it will not pickup local changes. Point to a directory to pickup local changes from a checkout, e.g. '.' or './alt/docker/build/path'.
+    context: # optional, default is {{defaultContext}}:.
+    # Dockerfile path (relative to build context).
+    file: # optional, default is Dockerfile
+    # Image name.
+    image: # optional, default is ${{ github.repository }}
+    # target platforms to build image(s) for, e.g. 'linux/amd64,linux/arm64'.
+    platforms: # optional, default is linux/amd64
+    # The string 'true' to push the built image to registry, otherwise the string 'false'.
+    push: # optional, default is false
+    # Registry to publish to.
+    registry: # optional, default is ghcr.io
+    # Username
+    registry_username: # optional, default is ${{ github.actor }}
+    # Password
+    registry_token: 
+    # Newline separated build secrets, e.g. "VERSION=foo\nAUTHOR=bar".
+    secrets: # optional
+    # Target stage to build
+    target: # optional
+          
